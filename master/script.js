@@ -116,7 +116,7 @@ function checkAnswer(answer){
   }
 };
 
-
+/*
 function scoreRender(){
   scoreContainer.style.display="block";
   let scorePercent = Math.round(100 * score/questions.length);
@@ -129,7 +129,7 @@ function scoreRender(){
 
 
 
-/*
+
 function sendMessage() {
   timeEl.textContent = " ";
 
