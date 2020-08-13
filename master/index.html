@@ -7,33 +7,47 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <h1>Ouicards jQuery!</h1>
-    <div id='flashcards'>
-      <div id='current-question'></div>
-      <div id='current-answer'></div>
-      <ul>
-        <li>
-          <div class='question'>Question 1</div>
-          <div class='answer'>Answer 1</div>
-        </li>
-        <li>
-          <div class='question'>Question 2</div>
-          <div class='answer'>Answer 2</div>
-        </li>
-        <li>
-          <div class='question'>Question 3</div>
-          <div class='answer'>Answer 3</div>
-        </li>
-      </ul>
-      <a id='show-answer' href='#'>Show answer</a>
-      <a id="correct" href="#">Correct</a>
-      <a id="wrong" href="#">Wrong</a>
+  <!-- start button that will count the time and show questions -->
+    <button type="button" id="startBtn">Start!</button>
+    <div class="showtimer"></div>
+
+    <main>
+      <div id="quiz" style="display : none;"></div>
+        <div id="question"><p>Question</p></div>
+          <div id="progressBar"></div>
+
+      <div id="choices">
+        <div class="choice" id="A" onclick="checkAnswer('A')">A</div>
+        <div class="choice" id="B" onclick="checkAnswer('B')">B</div>
+        <div class="choice" id="C" onclick="checkAnswer('C')">C</div>
+        <div class="choice" id="D" onclick="checkAnswer('D')">C</div>
+      </div>
+    </main>
+
+
+
+    <!-- score container -->
+    <div id="scoreContainer" style="display : none;">
+        <img src="#" alt="#"><p>50%</p>
+    </div>
+
+    <!-- Name for log the score -->
+    <div class="nameInput">
+      <h1>Your Name</h1>
+      <form>
+        <input placeholder="name" id="name" />
+        <button id="submit">Submit</button>
+        <div>
+          <h4 id="response"></h4>
+        </div>
+      </form>
     </div>
 
 
 
 
-
     <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </body>
 </html>
