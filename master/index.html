@@ -4,34 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fun Web Deb Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <!-- start button that will count the time and show questions -->
     <button type="button" id="startBtn">Start!</button>
-    <div class="showtimer"></div>
 
-    <main>
-      <div id="quiz" style="display : none;"></div>
-        <div id="question"><p>Question</p></div>
+
+    <main id = "quiz" style="display : none";>
+      <!-- <div id="quiz"></div> -->
+        <div id="question"><h1></h1></div>
           <div id="progressBar"></div>
 
       <div id="choices">
-        <div class="choice" id="A" onclick="checkAnswer('A')">A</div>
-        <div class="choice" id="B" onclick="checkAnswer('B')">B</div>
-        <div class="choice" id="C" onclick="checkAnswer('C')">C</div>
-        <div class="choice" id="D" onclick="checkAnswer('D')">C</div>
+        <button type = "button" class="choice" id="A" onclick="checkAnswer('A')" data-value="A">A</button>
+        <button type = "button" class="choice" id="B" onclick="checkAnswer('B')" data-value="B">B</button>
+        <button type = "button" class="choice" id="C" onclick="checkAnswer('C')" data-value="C">C</button>
+        <button type = "button" class="choice" id="D" onclick="checkAnswer('D')" data-value="D">C</button>
       </div>
     </main>
 
-
+    <div class="showtimer"></div>
 
     <!-- score container -->
     <div id="scoreContainer" style="display : none;">
+      <div id="tureOrFalse">All DONE! Your score is</div>
     </div>
 
     <!-- Name for log the score -->
-    <div class="nameInput">
+    <div class="nameInput" style="display : none;">
       <h1>Your Name</h1>
       <form>
         <input placeholder="name" id="name" />

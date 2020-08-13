@@ -1,22 +1,30 @@
-/* First Page Style */
+*{
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+}
 
 body {
-    font-family: 'Chilanka', cursive;
-    background-color: whitesmoke;
+    background-color: #719fc9;
 }
 
+button {
+    display: inline-block;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 5px;
+}
 
-.mainHeader {
-    border-style: outset;
-    border-color: chocolate;
-    padding: 20px;
-    text-align: center;
-    color: chocolate;
+#startBtn {
+    padding-right: 50px;
+    padding-left: 50px;
     font-size: 50px;
+    border-radius: 10px;
+    background-color:#171701;
+    color:#f0f0e1;
 }
 
-.quizRules {
-    padding-left: 20px;
-    color: crimson;
+.showtimer {
+    color: #dede28;
+    font-weight: bold;
+    padding: 20px;
 }
-
