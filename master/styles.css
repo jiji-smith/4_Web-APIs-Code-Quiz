@@ -12,6 +12,7 @@ button {
     padding: 15px;
     margin: 20px;
     border-radius: 5px;
+    background-color: rgb(238, 242, 255);
 }
 
 #startBtn {
@@ -27,4 +28,9 @@ button {
     color: #dede28;
     font-weight: bold;
     padding: 20px;
+}
+
+#tureOrFalse {
+    margin-top: 50px;
+    color: seashell;
 }

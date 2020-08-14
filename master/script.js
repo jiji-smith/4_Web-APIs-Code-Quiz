@@ -11,12 +11,12 @@ let choiceB = document.querySelector("#B");
 let choiceC = document.querySelector("#C");
 let choiceD = document.querySelector("#D");
 let scoreContainer = document.querySelector("#scoreContainer");
-let nameInput = document.querySelector("#name");
+let nameInput = document.querySelector(".nameInput");
 let showTheAnswer = document.querySelector("#trueOrFalse");
 
 
 // timer
-let secondsLeft = 900;
+let secondsLeft = 10;
 
 
 // Start Button
@@ -28,8 +28,11 @@ function start(event) {
   setTime();
   quiz.setAttribute("style", "display : block");
   renderQuestion();
+  startBtn.style.display="none";
 }
 
+
+//Timer
 function setTime() {
   let timerInterval = setInterval(function() {
     if (secondsLeft > 0) {
@@ -37,15 +40,16 @@ function setTime() {
       showTimer.textContent = "  You have " + secondsLeft + " seconds left!";
     } else {
       clearInterval(timerInterval);
-      // how to hide questions when it hits 0
-      quiz.setAttribute("style", "display: none")
+      quiz.setAttribute("style", "display: none");
+      showTimer.setAttribute("style", "display: none");
       alert("Time Out!");
-      ;
+      scoreContainer.style.display="block";
+      nameInput.style.display="block";
     }
   }, 1000);
 }
 
-//questions
+//Questions
 
 let questions = [
   {
@@ -99,49 +103,33 @@ function renderQuestion(){
   choiceB.innerHTML = eachQuestion.choiceB;
   choiceC.innerHTML = eachQuestion.choiceC;
   choiceD.innerHTML = eachQuestion.choiceD;
-}
-runningQuestionIndex;
+ }
 
-
-/*
-function checkAnswer(event){
-  console.log(event);
-  let q = questions[runningQuestionIndex];
-  let correctChoice = q.correct;
-}
- let playerChoice =
-
-}
-
-*/
 
 
 let score = 0;
 function checkAnswer(answer){
   if(questions[runningQuestionIndex].correct === answer){
     score++;
-    scoreContainer.textContent = score;
+    scoreContainer.textContent ="All done! your score is " + score;
     alert("correct");
   } else {
     alert("wrong");
   }
+
   if(runningQuestionIndex < lastQuestionIndex){
-    count = 0;
     runningQuestionIndex++;
     renderQuestion();
   }else{
     clearInterval(timerInterval);
+    scoreContainer.style.display="block";
+    nameInput.style.display="block";
   }
 };
 
-/*
-scoreContainer;
 
 
-if (secondsLeft === "0") {
-  nameInput.setAttribute("style", "display : block");
-  nameInput.innerHTML;
-}
+
 
 /*
 
