@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #719fc9;
+    background-color: #0a7fec;
 }
 
 button {
@@ -30,3 +30,26 @@ button {
     padding: 20px;
 }
 
+
+#scoreboard {
+    background-color: #f1e208;
+    border-radius: 5px;
+    /* padding: 10px; */
+    /* margin: 0px 100px; */
+    border-style: inset;
+
+}
+
+#scoreContainer {
+    color: rgb(19, 218, 109);
+    font-weight: bolder;
+}
+
+img {
+    width: 100%;
+    margin: 0;
+}
+
+li {
+    padding: 10px;
+}

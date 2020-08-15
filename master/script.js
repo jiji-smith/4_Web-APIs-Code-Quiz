@@ -19,7 +19,7 @@ let scoreboard = document.querySelector("#scoreboard");
 
 
 // timer
-let secondsLeft = 100;
+let secondsLeft = 15;
 let timerInterval;
 
 // Start Button
@@ -90,6 +90,15 @@ let questions = [
     choiceC : "The &lt;head&gt; section",
     choiceD : "Neither of them",
     correct : "A"
+  },
+  {
+    question : "Q5.  Which of the following function of String object creates a string to be displayed as bold as if it were in a &lt;b&gt; tag? ",
+    // imgSrc : "img/html.png",
+    choiceA : "anchor()",
+    choiceB : "big()",
+    choiceC : "blink()",
+    choiceD : "bold()",
+    correct : "D"
   }
 ];
 
@@ -114,10 +123,7 @@ let score = 0;
 function checkAnswer(answer){
   if(questions[runningQuestionIndex].correct === answer){
     score++;
-    scoreContainer.textContent ="All done! your score is " + score;
-    alert("correct");
-  }else{
-    alert("wrong");
+    scoreContainer.textContent ="Good Job! your score is ------  " + score;
   }
 
   if(runningQuestionIndex < lastQuestionIndex){
@@ -141,23 +147,24 @@ submitBtn.addEventListener("click", function(event) {
   if(rankName ==="") {
     return;
   }
-
+// get nameArr strings from localStorage and change it to array
   const nameArr = JSON.parse(localStorage.getItem("nameArr")) || [];
-
+// score container
   const newScore = {
     name: rankName,
     score: score
   }
-
+// save names and scores into nameArr
   nameArr.push(newScore);
   name.value="";
 
+//save nameArr to local storage
   localStorage.setItem("nameArr", JSON.stringify(nameArr));
 
   for (var i = 0; i < nameArr.length; i++) {
 
     var li = document.createElement("li");
-    li.textContent = nameArr[i].name + " - " + nameArr[i].score;
+    li.textContent = nameArr[i].name + ", your score is " + nameArr[i].score;
 
     scoreboard.appendChild(li);
   }

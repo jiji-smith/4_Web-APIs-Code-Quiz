@@ -1,5 +1,13 @@
 /* First Page Style */
 
+* {
+    text-align: center;
+}
+img {
+    margin: 0;
+    width: 100%;
+}
+
 body {
     font-family: 'Chilanka', cursive;
     background-color: whitesmoke;
@@ -20,7 +28,10 @@ h2 {
     color: crimson;
 }
 
+p {
+    font-weight: 900;
+}
+
 .quizdoor {
-text-align: center;
-margin-left: 40px;
+    padding: 10px;
 }
