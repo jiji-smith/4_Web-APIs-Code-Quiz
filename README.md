@@ -25,12 +25,12 @@ THEN I can save my initials and score
 
 <ol>
     <li>First page - "I'm ready" button will take you to the quiz, "I dont want to think" button will take you to JS youtube video</li>
-    <img src="../assets/FirstPage.png">
+    <img src="assets/FirstPage.png">
     <li>You can start with the button</li>
-    <img src="../assets/quizStart.png">
+    <img src="assets/quizStart.png">
     <li>Quiz will be multiple choices and timer is on</li>
-    <img src="../assets/quiz.png">
+    <img src="assets/quiz.png">
     <li>Result will show you your score and previous history</li>
-    <img src="../assets/Result.png">
+    <img src="assets/Result.png">
 </ol>
 
