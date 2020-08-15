@@ -12,12 +12,15 @@ let choiceC = document.querySelector("#C");
 let choiceD = document.querySelector("#D");
 let scoreContainer = document.querySelector("#scoreContainer");
 let nameInput = document.querySelector(".nameInput");
+let name = document.querySelector("#name");
 let showTheAnswer = document.querySelector("#trueOrFalse");
+let submitBtn = document.querySelector("#submit");
+let scoreboard = document.querySelector("#scoreboard");
 
 
 // timer
-let secondsLeft = 10;
-
+let secondsLeft = 100;
+let timerInterval;
 
 // Start Button
 startBtn.addEventListener("click", start)
@@ -34,7 +37,7 @@ function start(event) {
 
 //Timer
 function setTime() {
-  let timerInterval = setInterval(function() {
+  timerInterval = setInterval(function() {
     if (secondsLeft > 0) {
       secondsLeft--;
       showTimer.textContent = "  You have " + secondsLeft + " seconds left!";
@@ -106,14 +109,14 @@ function renderQuestion(){
  }
 
 
-
+// check the answer and gives score
 let score = 0;
 function checkAnswer(answer){
   if(questions[runningQuestionIndex].correct === answer){
     score++;
     scoreContainer.textContent ="All done! your score is " + score;
     alert("correct");
-  } else {
+  }else{
     alert("wrong");
   }
 
@@ -122,39 +125,41 @@ function checkAnswer(answer){
     renderQuestion();
   }else{
     clearInterval(timerInterval);
+    quiz.style.display="none"
     scoreContainer.style.display="block";
     nameInput.style.display="block";
   }
 };
 
+// log your name
 
+submitBtn.addEventListener("click", function(event) {
+  event.preventDefault();
 
+  let rankName = name.value.trim();
 
+  if(rankName ==="") {
+    return;
+  }
 
-/*
+  const nameArr = JSON.parse(localStorage.getItem("nameArr")) || [];
 
-function scoreRender(){
-  scoreContainer.style.display="block";
-  let scorePercent = Math.round(100 * score/questions.length);
-  let text = (scorePercent >= 80) ? "Excellent!" :
-              (scorePercent >= 60) ? "Goodjob!" :
-              (scorePercent >= 40) ? "Not bad!" :
-              (scorePercent >= 20) ? "Study harder!";
-  scoreContainer.innerHTML = text + scorePercent;
-}
+  const newScore = {
+    name: rankName,
+    score: score
+  }
 
+  nameArr.push(newScore);
+  name.value="";
 
+  localStorage.setItem("nameArr", JSON.stringify(nameArr));
 
+  for (var i = 0; i < nameArr.length; i++) {
 
-function sendMessage() {
-  timeEl.textContent = " ";
+    var li = document.createElement("li");
+    li.textContent = nameArr[i].name + " - " + nameArr[i].score;
 
-  var imgEl = document.createElement("img");
+    scoreboard.appendChild(li);
+  }
 
-  imgEl.setAttribute("src", "images/image_1.jpg");
-  mainEl.appendChild(imgEl);
-
-}
-
-setTime();
-*/
+});
